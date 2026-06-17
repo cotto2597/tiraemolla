@@ -354,6 +354,7 @@ nav{position:fixed;bottom:0;left:0;right:0;z-index:100;background:var(--negro-ca
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
 import { getFirestore, doc, getDoc, setDoc, collection, getDocs, deleteDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-storage.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDaL7txmHG92gYSlqA1KuuWcLV30Y2IvKc",
@@ -365,6 +366,7 @@ const firebaseConfig = {
 };
 const app = initializeApp(firebaseConfig);
 const db  = getFirestore(app);
+const storage = getStorage(app);
 
 let maestroCats=[], maestroProds=[];
 let sucConfig={
@@ -435,6 +437,27 @@ const saveProd=(p)=>setDoc(doc(db,'maestro_prods',p.id),p);
 const delProd =(id)=>deleteDoc(doc(db,'maestro_prods',id));
 const delCat  =(id)=>deleteDoc(doc(db,'maestro_cats',id));
 const saveSuc =(s,d)=>setDoc(doc(db,'sucursales',s),d);
+
+// ── SUBIR IMAGEN A FIREBASE STORAGE ──
+async function subirImagenStorage(blobOrFile, path){
+  const storageRef = ref(storage, path);
+  await uploadBytes(storageRef, blobOrFile);
+  return await getDownloadURL(storageRef);
+}
+
+async function procesarYGuardarImagen(urlOBase64, storagePath){
+  let blob;
+  if(urlOBase64.startsWith('data:')){
+    const res = await fetch(urlOBase64);
+    blob = await res.blob();
+  } else {
+    const res = await fetch(urlOBase64);
+    blob = await res.blob();
+  }
+  return await subirImagenStorage(blob, storagePath);
+}
+
+
 
 const DEFAULT_CAT_EMOJIS={Verduras:'🥦',Frutas:'🍊',Hierbas:'🌿','Lácteos':'🧀',Otros:'📦'};
 const catById  =id=>maestroCats.find(c=>c.id===id);
@@ -712,9 +735,16 @@ window.generarIconoCat=async function(id,nombre){
   const wrap=document.getElementById(`cat-ico-${id}`);
   wrap.innerHTML=`<div class="gen-overlay-sm"><div class="spinner"></div></div>`;
   try{
-    const url=await generarImagenDALLE(`categoría ${nombre} para verdulería, símbolo representativo`);
-    if(url){const cat=maestroCats.find(c=>c.id===id);if(cat){cat.imagenURL=url;await saveCat(cat);}wrap.innerHTML=`<img src="${url}" alt="${nombre}">`;mostrarNotif(`Ícono de ${nombre} listo ✨`);}
-    else{wrap.innerHTML=`<span class="emoji-cat-big">${catEmoji(nombre)}</span>`;mostrarNotif('No se pudo generar');}
+    const urlTemporal=await generarImagenDALLE(`categoría ${nombre} para verdulería, símbolo representativo`);
+    if(urlTemporal){
+      const urlFinal=await procesarYGuardarImagen(urlTemporal,`iconos/cats/${id}.png`);
+      const cat=maestroCats.find(c=>c.id===id);
+      if(cat){cat.imagenURL=urlFinal;await saveCat(cat);}
+      wrap.innerHTML=`<img src="${urlFinal}" alt="${nombre}">`;
+      mostrarNotif(`Ícono de ${nombre} listo ✨`);
+    } else {
+      wrap.innerHTML=`<span class="emoji-cat-big">${catEmoji(nombre)}</span>`;mostrarNotif('No se pudo generar');
+    }
   }catch(e){wrap.innerHTML=`<span class="emoji-cat-big">${catEmoji(nombre)}</span>`;mostrarNotif('Error: '+e.message);}
 }
 window.agregarCategoria=async function(){
@@ -755,10 +785,11 @@ function renderListaAdmin(){
             <input type="text" value="${p.nombre}" placeholder="Nombre" id="pn-${p.id}">
             <div class="prod-precio-wrap">
               <input type="number" value="${precio}" placeholder="Precio Edison" id="pp-${p.id}">
-              <select id="pu-${p.id}">${['kg','unidad','atado','bandeja','docena','litro','500g','250g'].map(u=>`<option value="${u}" ${p.unidad===u?'selected':''}>${u}</option>`).join('')}</select>
+              <select id="pu-${p.id}">${['kg','unidad','atado','bandeja','docena','litro','500g','250g','100g'].map(u=>`<option value="${u}" ${p.unidad===u?'selected':''}>${u}</option>`).join('')}</select>
             </div>
             <select id="pc-${p.id}">${maestroCats.map(c=>`<option value="${c.id}" ${p.categoria===c.id?'selected':''}>${c.nombre}</option>`).join('')}</select>
             <button class="btn-gen-icono" id="btngen-${p.id}" onclick="generarIconoProd('${p.id}')">✨ Generar ícono con IA</button>
+            <label class="btn-subir-icono" style="display:flex;align-items:center;justify-content:center;gap:6px;width:100%;background:var(--negro-input);border:1px solid var(--borde-verde);color:var(--verde);border-radius:6px;padding:8px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.78rem;text-transform:uppercase;cursor:pointer;margin-top:4px;">📁 Subir imagen<input type="file" accept="image/*" style="display:none" onchange="subirImagenManual('${p.id}',this)"></label>
           </div>
         </div>
         <div class="disponibilidad-wrap">
@@ -816,17 +847,35 @@ window.guardarPrecioPeralta=async function(id){
   const ok=document.getElementById(`ok-${id}`);ok.style.display='inline';setTimeout(()=>ok.style.display='none',2000);
 }
 
+window.subirImagenManual=async function(id,input){
+  const file=input.files[0];if(!file)return;
+  const prev=document.getElementById(`prev-${id}`);
+  prev.innerHTML=`<div class="gen-overlay-sm"><div class="spinner"></div></div>`;
+  try{
+    const urlFinal=await subirImagenStorage(file,`iconos/prods/${id}.png`);
+    const p=maestroProds.find(x=>x.id===id);
+    if(p){p.imagenURL=urlFinal;await saveProd(p);}
+    prev.innerHTML=`<img src="${urlFinal}" alt="${id}">`;
+    mostrarNotif('Imagen subida ✓');
+  }catch(e){
+    prev.innerHTML=`<span class="emoji-prev">❌</span>`;
+    mostrarNotif('Error: '+e.message);
+  }
+  input.value='';
+}
+
 window.generarIconoProd=async function(id){
   const nombre=document.getElementById(`pn-${id}`)?.value.trim()||'producto';
   const btn=document.getElementById(`btngen-${id}`);const prev=document.getElementById(`prev-${id}`);
   btn.disabled=true;btn.textContent='⏳ Generando...';
   prev.innerHTML=`<div class="gen-overlay-sm"><div class="spinner"></div></div>`;
   try{
-    const url=await generarImagenDALLE(nombre);
-    if(url){
+    const urlTemporal=await generarImagenDALLE(nombre);
+    if(urlTemporal){
+      const urlFinal=await procesarYGuardarImagen(urlTemporal,`iconos/prods/${id}.png`);
       const p=maestroProds.find(x=>x.id===id);
-      if(p){p.imagenURL=url;await saveProd(p);}
-      prev.innerHTML=`<img src="${url}" alt="${nombre}">`;
+      if(p){p.imagenURL=urlFinal;await saveProd(p);}
+      prev.innerHTML=`<img src="${urlFinal}" alt="${nombre}">`;
       mostrarNotif('Ícono generado ✨');
     }else{prev.innerHTML=`<span class="emoji-prev">❓</span>`;mostrarNotif('No se pudo generar');}
   }catch(e){prev.innerHTML=`<span class="emoji-prev">❌</span>`;mostrarNotif('Error: '+e.message);}
