@@ -6,6 +6,10 @@ exports.handler = async function(event) {
   }
 
   const OPENAI_KEY = process.env.OPENAI_API_KEY;
+  if (!OPENAI_KEY) {
+    return { statusCode: 500, headers: {'Content-Type':'application/json'}, body: JSON.stringify({error:'Falta la API key'}) };
+  }
+
   let descripcion;
   try {
     descripcion = JSON.parse(event.body).descripcion;
@@ -14,8 +18,8 @@ exports.handler = async function(event) {
   }
 
   const payload = JSON.stringify({
-    model: 'dall-e-3',
-    prompt: `Icono de producto para una verdulería premium argentina. El producto es: "${descripcion}". Estilo: ilustración flat minimalista sobre fondo negro profundo (#060D04). El producto debe verse realista, colorido y saturado, centrado, ocupando el 65% del encuadre. Sin texto, sin marcos, sin sombras complejas.`,
+    model: 'gpt-image-1',
+    prompt: `Icono estilo emoji 3D de "${descripcion}". Fondo transparente o blanco puro. Aspecto realista con volumen, brillo suave y colores muy saturados y vibrantes. Centrado, ocupando el 80% del encuadre. Sin texto, sin marcos, sin fondo de color.`,
     n: 1,
     size: '1024x1024'
   });
@@ -39,10 +43,18 @@ exports.handler = async function(event) {
           if (parsed.error) {
             resolve({ statusCode: 400, headers: {'Content-Type':'application/json'}, body: JSON.stringify({error: parsed.error.message}) });
           } else {
-            resolve({ statusCode: 200, headers: {'Content-Type':'application/json'}, body: JSON.stringify({url: parsed.data?.[0]?.url || null}) });
+            const url = parsed.data?.[0]?.url || null;
+            const b64 = parsed.data?.[0]?.b64_json || null;
+            if (url) {
+              resolve({ statusCode: 200, headers: {'Content-Type':'application/json'}, body: JSON.stringify({url}) });
+            } else if (b64) {
+              resolve({ statusCode: 200, headers: {'Content-Type':'application/json'}, body: JSON.stringify({url: `data:image/png;base64,${b64}`}) });
+            } else {
+              resolve({ statusCode: 500, headers: {'Content-Type':'application/json'}, body: JSON.stringify({error: 'No se recibió imagen'}) });
+            }
           }
         } catch(e) {
-          resolve({ statusCode: 500, headers: {'Content-Type':'application/json'}, body: JSON.stringify({error: 'Error parsing OpenAI response'}) });
+          resolve({ statusCode: 500, headers: {'Content-Type':'application/json'}, body: JSON.stringify({error: 'Error parsing response'}) });
         }
       });
     });
