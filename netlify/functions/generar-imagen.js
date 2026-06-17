@@ -19,7 +19,7 @@ exports.handler = async function(event) {
 
   const payload = JSON.stringify({
     model: 'gpt-image-1',
-    prompt: `Icono estilo emoji 3D de "${descripcion}". Fondo transparente o blanco puro. Aspecto realista con volumen, brillo suave y colores muy saturados y vibrantes. Centrado, ocupando el 80% del encuadre. Sin texto, sin marcos, sin fondo de color.`,
+    prompt: `Ilustración digital de "${descripcion}" estilo dibujo animado simpático, similar a los emojis de Apple. Fondo transparente. El objeto centrado, con colores vivos y saturados, líneas suaves, aspecto caricaturesco y amigable. Sin texto, sin sombras duras, sin fondos de color.`,
     n: 1,
     size: '1024x1024'
   });
