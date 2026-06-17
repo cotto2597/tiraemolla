@@ -17,8 +17,7 @@ exports.handler = async function(event) {
     model: 'dall-e-3',
     prompt: `Icono de producto para una verdulería premium argentina. El producto es: "${descripcion}". Estilo: ilustración flat minimalista sobre fondo negro profundo (#060D04). El producto debe verse realista, colorido y saturado, centrado, ocupando el 65% del encuadre. Sin texto, sin marcos, sin sombras complejas.`,
     n: 1,
-    size: '1024x1024',
-    response_format: 'url'
+    size: '1024x1024'
   });
 
   return new Promise((resolve) => {
