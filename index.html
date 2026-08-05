@@ -60,6 +60,8 @@ header::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:3px
 .banner::before{content:'';width:3px;height:36px;background:var(--verde);flex-shrink:0;border-radius:2px;}
 .banner-titulo{font-family:'Playfair Display',serif;font-style:italic;font-size:1.6rem;color:var(--texto);line-height:1.1;margin-bottom:2px;}
 .banner-sub{font-size:0.75rem;color:var(--texto-dim);font-weight:500;}
+.aviso-precios{margin:0 18px 14px;padding:10px 12px;background:var(--naranja-dim);border:1px solid var(--naranja-borde);border-radius:8px;font-size:0.76rem;color:var(--texto);line-height:1.4;}
+.aviso-precios b{color:var(--naranja);}
 .ofertas-section{padding:14px 18px;border-bottom:1px solid var(--borde);}
 .ofertas-header{display:flex;align-items:center;gap:8px;margin-bottom:12px;}
 .ofertas-titulo{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:0.78rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--naranja);}
@@ -67,10 +69,10 @@ header::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:3px
 @keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.6;}}
 .ofertas-scroll{display:flex;gap:10px;overflow-x:auto;scrollbar-width:none;padding-bottom:4px;}
 .ofertas-scroll::-webkit-scrollbar{display:none;}
-.oferta-card{background:var(--negro-card);border:1.5px solid var(--naranja-borde);border-radius:8px;overflow:hidden;flex-shrink:0;width:130px;position:relative;}
-.oferta-card-img{width:130px;height:90px;background:#080F07;display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative;}
+.oferta-card{background:var(--negro-card);border:1.5px solid var(--naranja-borde);border-radius:8px;overflow:hidden;flex-shrink:0;width:140px;position:relative;}
+.oferta-card-img{width:140px;height:110px;background:#080F07;display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative;}
 .oferta-card-img img{width:100%;height:100%;object-fit:cover;}
-.oferta-emoji-fb{font-size:2.2rem;}
+.oferta-emoji-fb{font-size:2.4rem;}
 .oferta-descuento{position:absolute;top:6px;left:6px;background:var(--naranja);color:white;font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:0.65rem;text-transform:uppercase;padding:2px 6px;border-radius:3px;}
 .oferta-timer{position:absolute;bottom:4px;right:4px;background:rgba(6,13,4,0.85);color:var(--naranja);font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.6rem;padding:2px 5px;border-radius:3px;}
 .oferta-body{padding:8px 10px 10px;}
@@ -89,47 +91,54 @@ header::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:3px
 .seccion-titulo-ico{width:24px;height:24px;border-radius:4px;overflow:hidden;display:flex;align-items:center;justify-content:center;background:var(--negro-card);flex-shrink:0;}
 .seccion-titulo-ico img{width:100%;height:100%;object-fit:cover;}
 .seccion-titulo::after{content:'';flex:1;height:1px;background:var(--borde);}
-.grilla{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;}
-.producto-card{background:var(--negro-card);border:1.5px solid var(--borde);border-radius:8px;overflow:hidden;display:flex;flex-direction:column;transition:border-color 0.2s;position:relative;}
+.grilla{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;}
+.producto-card{background:var(--negro-card);border:1.5px solid var(--borde);border-radius:10px;overflow:hidden;display:flex;flex-direction:column;transition:border-color 0.2s;position:relative;}
 .producto-card.en-carrito{border-color:var(--naranja);}
 .producto-card.es-oferta{border-color:var(--naranja-borde);}
-.badge-oferta-card{position:absolute;top:6px;left:6px;z-index:2;background:var(--naranja);color:white;font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:0.6rem;text-transform:uppercase;padding:2px 6px;border-radius:3px;}
-.producto-img-wrap{width:100%;aspect-ratio:1;background:#080F07;display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative;}
+.badge-oferta-card{position:absolute;top:8px;left:8px;z-index:2;background:var(--naranja);color:white;font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:0.62rem;text-transform:uppercase;padding:3px 7px;border-radius:4px;}
+.producto-img-wrap{width:100%;aspect-ratio:1/0.85;background:#080F07;display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative;}
 .producto-img-wrap img{width:100%;height:100%;object-fit:cover;}
-.emoji-fallback{font-size:2.8rem;}
-.vignette{position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 50%,rgba(6,13,4,0.6) 100%);pointer-events:none;}
+.emoji-fallback{font-size:3.4rem;}
+.vignette{position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 50%,rgba(6,13,4,0.55) 100%);pointer-events:none;}
 .gen-overlay-sm{position:absolute;inset:0;background:rgba(6,13,4,0.8);display:flex;align-items:center;justify-content:center;}
 .gen-overlay-sm .spinner{width:16px;height:16px;border-width:2px;}
 .spinner{width:24px;height:24px;border:2.5px solid var(--borde);border-top-color:var(--verde);border-radius:50%;animation:spin 0.8s linear infinite;}
-.producto-body{padding:10px 12px 12px;display:flex;flex-direction:column;gap:3px;flex:1;}
-.producto-nombre{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:0.95rem;text-transform:uppercase;letter-spacing:0.3px;line-height:1.1;}
+.producto-body{padding:11px 12px 12px;display:flex;flex-direction:column;gap:4px;flex:1;}
+.producto-nombre{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:1rem;text-transform:uppercase;letter-spacing:0.3px;line-height:1.1;}
 .bloque-precio{display:flex;align-items:baseline;gap:4px;margin-top:2px;flex-wrap:wrap;}
 .producto-precio{font-family:'Playfair Display',serif;font-style:italic;font-size:1.1rem;color:var(--verde);font-weight:700;}
 .producto-precio.oferta{color:var(--naranja);}
 .precio-tachado{font-size:0.72rem;color:var(--texto-dim);text-decoration:line-through;}
-.producto-unidad{font-size:0.7rem;color:var(--texto-dim);}
+.producto-unidad-base{font-size:0.7rem;color:var(--texto-dim);}
+.precio-aprox-tag{font-size:0.64rem;color:var(--naranja);font-weight:700;text-transform:uppercase;letter-spacing:0.3px;}
+.tipos-venta-sel{display:flex;flex-wrap:wrap;gap:5px;margin-top:8px;}
+.tipo-venta-btn{padding:5px 9px;border-radius:5px;border:1px solid var(--borde);background:var(--negro-input);color:var(--texto-dim);font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.72rem;text-transform:uppercase;cursor:pointer;transition:all 0.15s;}
+.tipo-venta-btn.activo{border-color:var(--naranja);color:var(--naranja);background:var(--naranja-dim);}
 .ctrl-cantidad{display:flex;align-items:center;gap:6px;margin-top:8px;}
 .btn-c{background:var(--naranja);color:white;border:none;border-radius:4px;width:28px;height:28px;font-size:1rem;font-weight:900;cursor:pointer;display:flex;align-items:center;justify-content:center;font-family:'Barlow Condensed',sans-serif;flex-shrink:0;transition:background 0.1s;}
 .btn-c:active{background:#c46e08;}
-.cant-num{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:1rem;min-width:20px;text-align:center;}
+.cant-num{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:1rem;min-width:26px;text-align:center;}
 .btn-agregar-card{width:100%;padding:8px;background:var(--verde-dim);color:var(--verde);border:1px solid var(--borde-verde);border-radius:4px;font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:0.82rem;text-transform:uppercase;letter-spacing:0.5px;cursor:pointer;margin-top:8px;transition:background 0.15s;}
 .btn-agregar-card:active{background:rgba(106,191,64,0.25);}
+.btn-agregar-card:disabled{opacity:0.4;cursor:not-allowed;}
 #vista-carrito{padding:18px;}
 .carrito-titulo{font-family:'Playfair Display',serif;font-style:italic;font-size:1.6rem;color:var(--texto);margin-bottom:16px;}
 .carrito-vacio{text-align:center;padding:60px 20px;color:var(--texto-dim);}
 .carrito-vacio .ico{font-size:2.8rem;display:block;margin-bottom:12px;opacity:0.5;}
 .item-carrito{background:var(--negro-card);border:1px solid var(--borde);border-radius:8px;padding:12px;margin-bottom:8px;display:flex;align-items:center;gap:12px;}
-.item-img{width:48px;height:48px;border-radius:6px;overflow:hidden;background:#080F07;flex-shrink:0;display:flex;align-items:center;justify-content:center;}
+.item-img{width:52px;height:52px;border-radius:6px;overflow:hidden;background:#080F07;flex-shrink:0;display:flex;align-items:center;justify-content:center;}
 .item-img img{width:100%;height:100%;object-fit:cover;}
-.item-img .emoji-sm{font-size:1.5rem;}
+.item-img .emoji-sm{font-size:1.7rem;}
 .item-info{flex:1;min-width:0;}
 .item-nombre{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:0.9rem;text-transform:uppercase;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 .item-det{color:var(--texto-dim);font-size:0.76rem;margin-top:2px;}
 .item-subtotal{font-family:'Playfair Display',serif;font-style:italic;font-size:0.95rem;color:var(--naranja);white-space:nowrap;}
 .btn-quitar{background:none;border:none;color:var(--texto-dim);font-size:1rem;cursor:pointer;padding:4px;}
-.resumen-box{background:var(--negro-card);border:1px solid var(--naranja-borde);border-radius:8px;padding:16px;display:flex;justify-content:space-between;align-items:center;margin:14px 0;}
+.resumen-box{background:var(--negro-card);border:1px solid var(--naranja-borde);border-radius:8px;padding:16px;display:flex;flex-direction:column;gap:4px;margin:14px 0;}
+.resumen-box-top{display:flex;justify-content:space-between;align-items:center;}
 .resumen-box span{font-size:0.8rem;font-weight:600;color:var(--texto-dim);text-transform:uppercase;letter-spacing:0.5px;}
 .resumen-box strong{font-family:'Playfair Display',serif;font-style:italic;font-size:1.5rem;color:var(--naranja);}
+.resumen-nota{font-size:0.7rem;color:var(--texto-dim);line-height:1.3;}
 .form-box{background:var(--negro-card);border:1px solid var(--borde);border-radius:8px;padding:16px;margin-bottom:14px;}
 .form-box h3{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:0.72rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--texto-dim);margin-bottom:14px;}
 .campo{margin-bottom:12px;}
@@ -186,7 +195,6 @@ header::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:3px
 .cat-ico-wrap img{width:100%;height:100%;object-fit:cover;}
 .cat-ico-wrap .emoji-cat-big{font-size:1.3rem;}
 .cat-nombre{flex:1;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.9rem;text-transform:uppercase;}
-.cat-gen-btn{background:none;border:1px solid var(--borde-verde);color:var(--verde);border-radius:4px;padding:5px 8px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.7rem;text-transform:uppercase;cursor:pointer;white-space:nowrap;}
 .cat-del-btn{background:none;border:none;color:var(--texto-dim);font-size:0.9rem;cursor:pointer;padding:4px;}
 .cats-nueva{display:flex;gap:8px;}
 .cats-nueva input{flex:1;padding:8px 12px;background:var(--negro-input);border:1px solid var(--borde);border-radius:6px;color:var(--texto);font-size:0.88rem;font-family:'Barlow',sans-serif;outline:none;}
@@ -214,9 +222,9 @@ header::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:3px
 .prod-campos input,.prod-campos select{padding:8px 10px;background:var(--negro-input);border:1px solid var(--borde);border-radius:6px;color:var(--texto);font-size:0.86rem;font-family:'Barlow',sans-serif;outline:none;width:100%;transition:border-color 0.2s;}
 .prod-campos input:focus,.prod-campos select:focus{border-color:var(--verde);}
 .prod-campos select option{background:#0F1A0D;}
-.btn-gen-icono{width:100%;background:var(--negro-input);border:1px solid var(--naranja-borde);color:var(--naranja);border-radius:6px;padding:8px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.78rem;text-transform:uppercase;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px;transition:background 0.15s;}
-.btn-gen-icono:hover{background:var(--naranja-dim);}
-.btn-gen-icono:disabled{opacity:0.4;cursor:not-allowed;}
+.btn-subir-img{width:100%;background:var(--negro-input);border:1px solid var(--borde-verde);color:var(--verde);border-radius:6px;padding:8px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.78rem;text-transform:uppercase;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px;transition:background 0.15s;position:relative;overflow:hidden;}
+.btn-subir-img:hover{background:var(--verde-dim);}
+.btn-subir-img input[type=file]{position:absolute;inset:0;opacity:0;cursor:pointer;}
 .prod-precio-wrap{display:flex;gap:8px;}
 .prod-precio-wrap input,.prod-precio-wrap select{flex:1;}
 .prod-acciones{display:flex;gap:8px;align-items:center;flex-wrap:wrap;}
@@ -228,6 +236,21 @@ header::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:3px
 .peralta-precio-wrap{background:var(--naranja-dim);border:1px solid var(--naranja-borde);border-radius:6px;padding:10px;margin-top:6px;}
 .peralta-precio-wrap label{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.7rem;text-transform:uppercase;letter-spacing:1px;color:var(--naranja);display:block;margin-bottom:5px;}
 .peralta-precio-wrap input{width:100%;padding:8px 10px;background:var(--negro-input);border:1px solid var(--borde);border-radius:6px;color:var(--texto);font-size:0.86rem;font-family:'Barlow',sans-serif;outline:none;}
+.unidades-box{background:var(--negro-input);border:1px solid var(--borde);border-radius:6px;padding:10px;margin-top:6px;}
+.unidades-box>label{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.7rem;text-transform:uppercase;letter-spacing:0.8px;color:var(--texto-dim);display:block;margin-bottom:8px;}
+.unidades-checks{display:flex;flex-wrap:wrap;gap:6px;}
+.unidad-check{display:flex;align-items:center;gap:5px;background:var(--negro);border:1px solid var(--borde);border-radius:5px;padding:5px 9px;cursor:pointer;transition:all 0.15s;}
+.unidad-check.checked{border-color:var(--verde);background:var(--verde-dim);}
+.unidad-check input{accent-color:var(--verde);width:14px;height:14px;cursor:pointer;}
+.unidad-check span{font-size:0.78rem;font-weight:600;color:var(--texto);}
+.peso-estimado-box{margin-top:10px;padding-top:10px;border-top:1px solid var(--borde);}
+.peso-estimado-toggle{display:flex;align-items:center;gap:8px;margin-bottom:8px;}
+.peso-estimado-toggle span{font-size:0.78rem;font-weight:600;color:var(--texto-dim);}
+.peso-estimado-input-wrap{display:none;}
+.peso-estimado-input-wrap.visible{display:block;}
+.peso-estimado-input-wrap label{font-size:0.74rem;color:var(--texto-dim);display:block;margin-bottom:4px;}
+.peso-estimado-input-wrap input{width:100%;padding:7px 10px;background:var(--negro);border:1px solid var(--borde);border-radius:5px;color:var(--texto);font-size:0.82rem;font-family:'Barlow',sans-serif;outline:none;}
+.peso-estimado-input-wrap input:focus{border-color:var(--verde);}
 nav{position:fixed;bottom:0;left:0;right:0;z-index:100;background:var(--negro-card);border-top:1px solid var(--borde);display:flex;}
 .nav-btn{flex:1;border:none;background:none;color:var(--texto-dim);padding:12px 0 10px;display:flex;flex-direction:column;align-items:center;gap:3px;font-family:'Barlow Condensed',sans-serif;font-size:0.65rem;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;cursor:pointer;transition:color 0.15s;}
 .nav-btn .nav-ico{font-size:1.15rem;}
@@ -269,6 +292,7 @@ nav{position:fixed;bottom:0;left:0;right:0;z-index:100;background:var(--negro-ca
     <div class="banner-titulo">Lo mejor del día</div>
     <div class="banner-sub" id="banner-suc-label">Pedidos por WhatsApp</div>
   </div></div>
+  <div class="aviso-precios">📌 Los precios son <b>orientativos</b>. El total final se confirma cuando el pedido se pesa y arma en el local.</div>
   <div id="ofertas-section" style="display:none" class="ofertas-section">
     <div class="ofertas-header"><span class="ofertas-titulo">Ofertas del día</span><span class="oferta-badge-live">Live</span></div>
     <div class="ofertas-scroll" id="ofertas-scroll"></div>
@@ -338,7 +362,7 @@ nav{position:fixed;bottom:0;left:0;right:0;z-index:100;background:var(--negro-ca
   <div id="admin-prods-section">
     <div class="buscador-wrap">
       <span class="buscador-ico">🔍</span>
-      <input type="text" id="buscador-prod" placeholder="Buscar producto..." oninput="renderListaAdmin()">
+      <input type="text" id="buscador-prod" placeholder="Buscar producto...">
     </div>
     <button class="btn-nuevo-prod" id="btn-nuevo-prod" style="display:none" onclick="agregarProdAdmin()">+ Nuevo producto</button>
     <div id="lista-admin"></div>
@@ -374,31 +398,67 @@ let sucConfig={
   peralta:{wsp:'',usuarios:[{user:'admin',pass:'1234'}],activos:[],precios:{},ofertas:[]}
 };
 
+const TIPOS_VENTA = [
+  {id:'cien_g',  label:'100 g', esPeso:true,  factor:0.1},
+  {id:'cuarto_kg',label:'¼ Kg', esPeso:true,  factor:0.25},
+  {id:'medio_kg',label:'½ Kg',  esPeso:true,  factor:0.5},
+  {id:'kg',      label:'1 Kg',  esPeso:true,  factor:1},
+  {id:'dos_kg',  label:'2 Kg',  esPeso:true,  factor:2},
+  {id:'unidad',  label:'Unidad',esPeso:false, factor:null},
+  {id:'atado',   label:'Atado', esPeso:false, factor:null},
+  {id:'bandeja', label:'Bandeja',esPeso:false,factor:null},
+  {id:'docena',  label:'Docena',esPeso:false, factor:null},
+  {id:'litro',   label:'Litro', esPeso:false, factor:null},
+];
+const tipoVentaById = id => TIPOS_VENTA.find(t=>t.id===id);
+
 const DEFAULT_CATS=[{id:'c1',nombre:'Verduras',imagenURL:null},{id:'c2',nombre:'Frutas',imagenURL:null},{id:'c3',nombre:'Hierbas',imagenURL:null},{id:'c4',nombre:'Lácteos',imagenURL:null},{id:'c5',nombre:'Otros',imagenURL:null}];
-const DEFAULT_PRODS=[{id:'p1',nombre:'Tomate',unidad:'kg',categoria:'c1',imagenURL:null},{id:'p2',nombre:'Lechuga',unidad:'unidad',categoria:'c1',imagenURL:null},{id:'p3',nombre:'Zanahoria',unidad:'kg',categoria:'c1',imagenURL:null},{id:'p4',nombre:'Papa',unidad:'kg',categoria:'c1',imagenURL:null},{id:'p5',nombre:'Manzana',unidad:'kg',categoria:'c2',imagenURL:null},{id:'p6',nombre:'Banana',unidad:'kg',categoria:'c2',imagenURL:null},{id:'p7',nombre:'Naranja',unidad:'kg',categoria:'c2',imagenURL:null}];
+const DEFAULT_PRODS=[
+  {id:'p1',nombre:'Tomate',unidadesVenta:['kg','medio_kg','cuarto_kg'],categoria:'c1',imagenURL:null,pesoEstimadoActivo:false,pesoEstimadoGramos:null},
+  {id:'p2',nombre:'Lechuga',unidadesVenta:['unidad'],categoria:'c1',imagenURL:null,pesoEstimadoActivo:false,pesoEstimadoGramos:null},
+  {id:'p3',nombre:'Zanahoria',unidadesVenta:['kg','medio_kg'],categoria:'c1',imagenURL:null,pesoEstimadoActivo:false,pesoEstimadoGramos:null},
+  {id:'p4',nombre:'Papa',unidadesVenta:['kg','medio_kg'],categoria:'c1',imagenURL:null,pesoEstimadoActivo:false,pesoEstimadoGramos:null},
+  {id:'p5',nombre:'Manzana',unidadesVenta:['kg','unidad'],categoria:'c2',imagenURL:null,pesoEstimadoActivo:false,pesoEstimadoGramos:null},
+  {id:'p6',nombre:'Banana',unidadesVenta:['kg'],categoria:'c2',imagenURL:null,pesoEstimadoActivo:false,pesoEstimadoGramos:null},
+  {id:'p7',nombre:'Naranja',unidadesVenta:['kg'],categoria:'c2',imagenURL:null,pesoEstimadoActivo:false,pesoEstimadoGramos:null}
+];
+
+function migrarProducto(p){
+  if(!p.unidadesVenta || !Array.isArray(p.unidadesVenta) || p.unidadesVenta.length===0){
+    const mapaViejo={kg:'kg','500g':'medio_kg','250g':'cuarto_kg','100g':'cien_g',unidad:'unidad',atado:'atado',bandeja:'bandeja',docena:'docena',litro:'litro'};
+    const nuevoTipo=mapaViejo[p.unidad]||'kg';
+    p.unidadesVenta=[nuevoTipo];
+  }
+  if(p.pesoEstimadoActivo===undefined)p.pesoEstimadoActivo=false;
+  if(p.pesoEstimadoGramos===undefined)p.pesoEstimadoGramos=null;
+  return p;
+}
 
 async function cargarDatos(){
   const catsSnap=await getDocs(collection(db,'maestro_cats'));
   if(catsSnap.empty){for(const c of DEFAULT_CATS)await setDoc(doc(db,'maestro_cats',c.id),c);maestroCats=[...DEFAULT_CATS];}
   else{maestroCats=catsSnap.docs.map(d=>d.data()).sort((a,b)=>a.nombre.localeCompare(b.nombre,'es'));}
+
   const prodsSnap=await getDocs(collection(db,'maestro_prods'));
   if(prodsSnap.empty){for(const p of DEFAULT_PRODS)await setDoc(doc(db,'maestro_prods',p.id),p);maestroProds=[...DEFAULT_PRODS];}
-  else{maestroProds=prodsSnap.docs.map(d=>d.data()).sort((a,b)=>a.nombre.localeCompare(b.nombre,'es'));}
+  else{
+    maestroProds=prodsSnap.docs.map(d=>migrarProducto(d.data())).sort((a,b)=>a.nombre.localeCompare(b.nombre,'es'));
+  }
+
   for(const s of ['edison','peralta']){
     const snap=await getDoc(doc(db,'sucursales',s));
     if(snap.exists()){
       sucConfig[s]=snap.data();
       if(!sucConfig[s].ofertas)sucConfig[s].ofertas=[];
-      // migración: si no tiene activos, inicializar con todos
       if(!sucConfig[s].activos)sucConfig[s].activos=maestroProds.map(p=>p.id);
     } else {
       sucConfig[s]={wsp:'',usuarios:[{user:'admin',pass:'1234'}],activos:maestroProds.map(p=>p.id),precios:{},ofertas:[]};
       await setDoc(doc(db,'sucursales',s),sucConfig[s]);
     }
   }
-  // listeners tiempo real
+
   onSnapshot(collection(db,'maestro_prods'),snap=>{
-    maestroProds=snap.docs.map(d=>d.data()).sort((a,b)=>a.nombre.localeCompare(b.nombre,'es'));
+    maestroProds=snap.docs.map(d=>migrarProducto(d.data())).sort((a,b)=>a.nombre.localeCompare(b.nombre,'es'));
     if(sucActual)renderCatalogo();
     if(adminLogueado)renderListaAdmin();
   });
@@ -425,9 +485,17 @@ async function cargarDatos(){
       if(adminLogueado&&adminSuc==='peralta'){renderOfertasAdmin();renderListaAdmin();}
     }
   });
+
   const hoy=new Date().toISOString().split('T')[0];
   const fi=document.getElementById('oferta-fecha');
   if(fi){fi.min=hoy;fi.value=hoy;}
+
+  // Conectar el buscador desde el módulo (los atributos oninline no ven funciones de módulo)
+  const buscador=document.getElementById('buscador-prod');
+  if(buscador){
+    buscador.addEventListener('input',()=>{ if(adminLogueado) renderListaAdmin(); });
+  }
+
   document.getElementById('loading-screen').style.display='none';
   document.getElementById('vista-sucursal').style.display='flex';
 }
@@ -438,28 +506,14 @@ const delProd =(id)=>deleteDoc(doc(db,'maestro_prods',id));
 const delCat  =(id)=>deleteDoc(doc(db,'maestro_cats',id));
 const saveSuc =(s,d)=>setDoc(doc(db,'sucursales',s),d);
 
-// ── SUBIR IMAGEN A FIREBASE STORAGE ──
-async function subirImagenStorage(blobOrFile, path){
+async function subirImagenStorage(file, path){
   const storageRef = ref(storage, path);
-  await uploadBytes(storageRef, blobOrFile);
+  await uploadBytes(storageRef, file);
   return await getDownloadURL(storageRef);
 }
 
-async function procesarYGuardarImagen(urlOBase64, storagePath){
-  let blob;
-  if(urlOBase64.startsWith('data:')){
-    const res = await fetch(urlOBase64);
-    blob = await res.blob();
-  } else {
-    const res = await fetch(urlOBase64);
-    blob = await res.blob();
-  }
-  return await subirImagenStorage(blob, storagePath);
-}
-
-
-
-const DEFAULT_CAT_EMOJIS={Verduras:'🥦',Frutas:'🍊',Hierbas:'🌿','Lácteos':'🧀',Otros:'📦'};
+const DEFAULT_CAT_EMOJIS={Verduras:'🥦',Frutas:'🍊',Hierbas:'🌿','Lácteos':'🧀',Otros:'📦',Hongos:'🍄',
+  'Frutos Secos':'🥜',Especias:'🧂',Almacén:'🛒'};
 const catById  =id=>maestroCats.find(c=>c.id===id);
 const catNombre=id=>catById(id)?.nombre||id;
 const catEmoji =n=>DEFAULT_CAT_EMOJIS[n]||'🏷️';
@@ -467,23 +521,8 @@ const catEmoji =n=>DEFAULT_CAT_EMOJIS[n]||'🏷️';
 let sucActual=null,adminLogueado=false,adminSuc=null,filtroActivo='Todos',carrito={},loginSucSel='edison';
 const SUCURSALES={edison:{nombre:'Edison',dir:'Edison 2039'},peralta:{nombre:'Peralta Ramos',dir:'J. Peralta Ramos 998'}};
 
-// ── DALL-E via Netlify Function ──
-async function generarImagenDALLE(descripcion){
-  const r=await fetch('/.netlify/functions/generar-imagen',{
-    method:'POST',
-    headers:{'Content-Type':'application/json'},
-    body:JSON.stringify({descripcion})
-  });
-  if(!r.ok){
-    const txt=await r.text();
-    throw new Error(`HTTP ${r.status}: ${txt.substring(0,100)}`);
-  }
-  const data=await r.json();
-  if(data.error)throw new Error(data.error);
-  return data.url||null;
-}
+let seleccionTipoVenta={};
 
-// ── OFERTAS ──
 function ofertasVigentes(suc){
   const ahora=Date.now();
   return (sucConfig[suc]?.ofertas||[]).filter(o=>o.vence>ahora);
@@ -498,9 +537,21 @@ function formatTimer(ms){
   return `${m}m`;
 }
 
-// ── NAVEGACIÓN ──
+function calcularPrecioTipoVenta(p, tipoId, precioBase){
+  const tipo=tipoVentaById(tipoId);
+  if(!tipo || !precioBase) return {precio:0, esAproximado:false, tieneP:false};
+  if(tipo.esPeso){
+    return {precio: Math.round(precioBase*tipo.factor), esAproximado:false, tieneP:true};
+  }
+  if(p.pesoEstimadoActivo && p.pesoEstimadoGramos>0){
+    const kgEstimado=p.pesoEstimadoGramos/1000;
+    return {precio: Math.round(precioBase*kgEstimado), esAproximado:true, tieneP:true};
+  }
+  return {precio:0, esAproximado:false, tieneP:false};
+}
+
 window.elegirSucursal=function(suc){
-  sucActual=suc;carrito={};filtroActivo='Todos';actualizarBadge();
+  sucActual=suc;carrito={};filtroActivo='Todos';seleccionTipoVenta={};actualizarBadge();
   document.getElementById('vista-sucursal').style.display='none';
   document.getElementById('main-header').style.display='flex';
   document.getElementById('main-nav').style.display='flex';
@@ -525,7 +576,6 @@ window.irA=function(vista){
 function show(id){document.getElementById(id).classList.add('activa');}
 function navOn(id){document.getElementById(id).classList.add('activo');}
 
-// ── CATÁLOGO ──
 function renderCatalogo(){
   if(!sucActual)return;
   const sc=sucConfig[sucActual];
@@ -542,15 +592,17 @@ function renderCatalogo(){
       const msR=o.vence-Date.now();
       const descPct=precioNormal>0?Math.round((1-o.precio/precioNormal)*100):0;
       const imgEl=p.imagenURL?`<img src="${p.imagenURL}" alt="${p.nombre}" loading="lazy">`:`<span class="oferta-emoji-fb">${catEmoji(catNombre(p.categoria))}</span>`;
-      return `<div class="oferta-card"><div class="oferta-card-img">${imgEl}${descPct>0?`<span class="oferta-descuento">-${descPct}%</span>`:'<span class="oferta-descuento">Oferta</span>'}<span class="oferta-timer">⏱ ${formatTimer(msR)}</span></div><div class="oferta-body"><div class="oferta-nombre">${p.nombre}</div><div class="oferta-precios"><span class="oferta-precio-nuevo">$${o.precio.toLocaleString('es-AR')}</span>${precioNormal>0?`<span class="oferta-precio-viejo">$${precioNormal.toLocaleString('es-AR')}</span>`:''}</div><div class="oferta-unidad">por ${p.unidad}</div><button class="btn-agregar-oferta" onclick="agregarOfertaCarrito('${p.id}',${o.precio})">+ Agregar</button></div></div>`;
+      return `<div class="oferta-card"><div class="oferta-card-img">${imgEl}${descPct>0?`<span class="oferta-descuento">-${descPct}%</span>`:'<span class="oferta-descuento">Oferta</span>'}<span class="oferta-timer">⏱ ${formatTimer(msR)}</span></div><div class="oferta-body"><div class="oferta-nombre">${p.nombre}</div><div class="oferta-precios"><span class="oferta-precio-nuevo">$${o.precio.toLocaleString('es-AR')}</span>${precioNormal>0?`<span class="oferta-precio-viejo">$${precioNormal.toLocaleString('es-AR')}</span>`:''}</div><div class="oferta-unidad">por kg</div><button class="btn-agregar-oferta" onclick="agregarOfertaCarrito('${p.id}',${o.precio})">+ Agregar</button></div></div>`;
     }).join('');
   }else{ofertasSec.style.display='none';}
+
   const prods=maestroProds.filter(p=>activos.includes(p.id));
   const cats=['Todos',...maestroCats.filter(c=>prods.some(p=>p.categoria===c.id)).map(c=>c.id)];
   document.getElementById('filtros').innerHTML=cats.map(cid=>{
     const nombre=cid==='Todos'?'Todos':catNombre(cid);
     return `<button class="filtro-btn ${cid===filtroActivo?'activo':''}" onclick="setFiltro('${cid}')">${nombre}</button>`;
   }).join('');
+
   const lista=document.getElementById('lista-productos');
   const filtrados=filtroActivo==='Todos'?prods:prods.filter(p=>p.categoria===filtroActivo);
   if(!filtrados.length){lista.innerHTML='<div style="text-align:center;padding:40px;color:var(--texto-dim)">Sin productos disponibles</div>';return;}
@@ -562,39 +614,84 @@ function renderCatalogo(){
     return `<div class="seccion-cat"><div class="seccion-titulo">${catIcoEl} ${cat?.nombre||catId}</div><div class="grilla">${ps.map(p=>renderCard(p,precios,ofertas)).join('')}</div></div>`;
   }).join('');
 }
+
 function renderCard(p,precios,ofertas){
   const cant=carrito[p.id]?.cantidad||0;
-  const precio=precios[p.id]||0;
+  const precioBase=precios[p.id]||0;
   const oferta=ofertas.find(o=>o.prodId===p.id);
-  const precioFinal=oferta?oferta.precio:precio;
   const esOferta=!!oferta;
+  const unidadesVenta=p.unidadesVenta&&p.unidadesVenta.length?p.unidadesVenta:['kg'];
+  const tipoSel=seleccionTipoVenta[p.id]||unidadesVenta[0];
+
+  const precioParaCalculo=esOferta?oferta.precio:precioBase;
+  const calc=calcularPrecioTipoVenta(p,tipoSel,precioParaCalculo);
+
   const imgEl=p.imagenURL?`<img src="${p.imagenURL}" alt="${p.nombre}" loading="lazy"><div class="vignette"></div>`:`<span class="emoji-fallback">${catEmoji(catNombre(p.categoria))}</span>`;
+
+  const selectorTipos=unidadesVenta.length>1
+    ?`<div class="tipos-venta-sel">${unidadesVenta.map(tid=>{
+        const t=tipoVentaById(tid);
+        return `<button class="tipo-venta-btn ${tid===tipoSel?'activo':''}" onclick="elegirTipoVenta('${p.id}','${tid}')">${t?.label||tid}</button>`;
+      }).join('')}</div>`
+    :`<div class="producto-unidad-base">${tipoVentaById(tipoSel)?.label||tipoSel}</div>`;
+
+  let precioHTML;
+  if(!calc.tieneP){
+    precioHTML=`<span class="producto-precio" style="color:var(--texto-dim);font-size:0.85rem;font-style:normal">Consultar precio</span>`;
+  }else{
+    precioHTML=`<span class="producto-precio ${esOferta?'oferta':''}">$${calc.precio.toLocaleString('es-AR')}</span>${calc.esAproximado?'<span class="precio-aprox-tag">aprox.</span>':''}`;
+  }
+
+  const puedeAgregar=calc.tieneP;
+
   return `<div class="producto-card ${cant>0?'en-carrito':''} ${esOferta?'es-oferta':''}" id="card-${p.id}">
     ${esOferta?'<span class="badge-oferta-card">Oferta</span>':''}
     <div class="producto-img-wrap">${imgEl}</div>
     <div class="producto-body">
       <div class="producto-nombre">${p.nombre}</div>
-      <div class="bloque-precio">
-        <span class="producto-precio ${esOferta?'oferta':''}">${precioFinal?'$'+precioFinal.toLocaleString('es-AR'):'Sin precio'}</span>
-        ${esOferta&&precio?`<span class="precio-tachado">$${precio.toLocaleString('es-AR')}</span>`:''}
-        <span class="producto-unidad">${p.unidad}</span>
-      </div>
-      ${cant===0?`<button class="btn-agregar-card" onclick="agregarAlCarrito('${p.id}')">+ Agregar</button>`:`<div class="ctrl-cantidad"><button class="btn-c" onclick="cambiarCant('${p.id}',-1)">−</button><span class="cant-num">${cant}</span><button class="btn-c" onclick="cambiarCant('${p.id}',1)">+</button></div>`}
+      <div class="bloque-precio">${precioHTML}</div>
+      ${selectorTipos}
+      ${cant===0
+        ?`<button class="btn-agregar-card" onclick="agregarAlCarrito('${p.id}')" ${!puedeAgregar?'disabled':''}>+ Agregar</button>`
+        :`<div class="ctrl-cantidad"><button class="btn-c" onclick="cambiarCant('${p.id}',-1)">−</button><span class="cant-num">${cant}</span><button class="btn-c" onclick="cambiarCant('${p.id}',1)">+</button></div>`}
     </div>
   </div>`;
 }
+
 window.setFiltro=function(cat){filtroActivo=cat;renderCatalogo();}
+
+window.elegirTipoVenta=function(prodId,tipoId){
+  seleccionTipoVenta[prodId]=tipoId;
+  if(carrito[prodId]){
+    const p=maestroProds.find(x=>x.id===prodId);
+    const precios=sucConfig[sucActual]?.precios||{};
+    const ofertas=ofertasVigentes(sucActual);
+    const oferta=ofertas.find(o=>o.prodId===prodId);
+    const precioBase=oferta?oferta.precio:(precios[prodId]||0);
+    const calc=calcularPrecioTipoVenta(p,tipoId,precioBase);
+    carrito[prodId].tipoVenta=tipoId;
+    carrito[prodId].precioUnitario=calc.precio;
+    carrito[prodId].esAproximado=calc.esAproximado;
+  }
+  renderCatalogo();
+}
+
 window.agregarAlCarrito=function(id){
   const p=maestroProds.find(x=>x.id===id);if(!p)return;
+  const unidadesVenta=p.unidadesVenta&&p.unidadesVenta.length?p.unidadesVenta:['kg'];
+  const tipoSel=seleccionTipoVenta[id]||unidadesVenta[0];
   const ofertas=ofertasVigentes(sucActual);
   const oferta=ofertas.find(o=>o.prodId===id);
-  const precio=oferta?oferta.precio:(sucConfig[sucActual]?.precios?.[id]||0);
-  carrito[id]={cantidad:1,producto:p,precio};
+  const precios=sucConfig[sucActual]?.precios||{};
+  const precioBase=oferta?oferta.precio:(precios[id]||0);
+  const calc=calcularPrecioTipoVenta(p,tipoSel,precioBase);
+  if(!calc.tieneP){mostrarNotif('Este producto no tiene precio disponible para esa opción');return;}
+  carrito[id]={cantidad:1,producto:p,tipoVenta:tipoSel,precioUnitario:calc.precio,esAproximado:calc.esAproximado};
   actualizarBadge();mostrarNotif(`${p.nombre} agregado`);renderCatalogo();
 }
-window.agregarOfertaCarrito=function(id,precio){
+window.agregarOfertaCarrito=function(id,precioOferta){
   const p=maestroProds.find(x=>x.id===id);if(!p)return;
-  carrito[id]={cantidad:1,producto:p,precio};
+  carrito[id]={cantidad:1,producto:p,tipoVenta:'kg',precioUnitario:precioOferta,esAproximado:false};
   actualizarBadge();mostrarNotif(`${p.nombre} agregado`);renderCatalogo();
 }
 window.cambiarCant=function(id,delta){
@@ -613,17 +710,21 @@ function mostrarNotif(msg){
   setTimeout(()=>el.classList.remove('visible'),1800);
 }
 
-// ── CARRITO ──
 function renderCarrito(){
   const items=Object.values(carrito);
-  const total=items.reduce((s,i)=>s+i.precio*i.cantidad,0);
+  const total=items.reduce((s,i)=>s+i.precioUnitario*i.cantidad,0);
+  const hayAproximados=items.some(i=>i.esAproximado);
   const el=document.getElementById('contenido-carrito');
   if(!items.length){el.innerHTML=`<div class="carrito-vacio"><span class="ico">🛒</span><p style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:1rem;text-transform:uppercase;margin-bottom:6px">Todavía no agregaste nada</p><p style="font-size:0.8rem;color:var(--texto-dim)">Volvé al catálogo y elegí tus productos</p><button class="btn-volver" style="width:auto;padding:12px 28px;margin-top:20px" onclick="irA('catalogo')">Ver productos</button></div>`;return;}
   el.innerHTML=`${items.map(i=>{
     const imgEl=i.producto.imagenURL?`<img src="${i.producto.imagenURL}" alt="${i.producto.nombre}">`:`<span class="emoji-sm">${catEmoji(catNombre(i.producto.categoria))}</span>`;
-    return `<div class="item-carrito"><div class="item-img">${imgEl}</div><div class="item-info"><div class="item-nombre">${i.producto.nombre}</div><div class="item-det">${i.cantidad} ${i.producto.unidad} × $${i.precio.toLocaleString('es-AR')}</div></div><span class="item-subtotal">$${(i.precio*i.cantidad).toLocaleString('es-AR')}</span><button class="btn-quitar" onclick="quitarItem('${i.producto.id}')">✕</button></div>`;
+    const tipoLabel=tipoVentaById(i.tipoVenta)?.label||i.tipoVenta;
+    return `<div class="item-carrito"><div class="item-img">${imgEl}</div><div class="item-info"><div class="item-nombre">${i.producto.nombre}</div><div class="item-det">${i.cantidad} × ${tipoLabel} · $${i.precioUnitario.toLocaleString('es-AR')}${i.esAproximado?' (aprox.)':''}</div></div><span class="item-subtotal">$${(i.precioUnitario*i.cantidad).toLocaleString('es-AR')}</span><button class="btn-quitar" onclick="quitarItem('${i.producto.id}')">✕</button></div>`;
   }).join('')}
-  <div class="resumen-box"><span>Total estimado</span><strong>$${total.toLocaleString('es-AR')}</strong></div>
+  <div class="resumen-box">
+    <div class="resumen-box-top"><span>Total estimado</span><strong>$${total.toLocaleString('es-AR')}</strong></div>
+    <div class="resumen-nota">${hayAproximados?'⚠️ Incluye productos con precio aproximado. ':''}El total final se confirma al armar el pedido en el local.</div>
+  </div>
   <div class="form-box">
     <h3>Tus datos · ${SUCURSALES[sucActual]?.nombre||''}</h3>
     <div class="campo"><label>Nombre *</label><input id="f-nombre" type="text" placeholder="Ej: María González"></div>
@@ -647,15 +748,19 @@ window.enviarPedido=function(){
   if(!tel){alert('Por favor ingresá tu teléfono');return;}
   if(tipo==='domicilio'&&!dir){alert('Por favor ingresá tu dirección');return;}
   const items=Object.values(carrito);
-  const total=items.reduce((s,i)=>s+i.precio*i.cantidad,0);
+  const total=items.reduce((s,i)=>s+i.precioUnitario*i.cantidad,0);
   const sInfo=SUCURSALES[sucActual];
   let msg=`🌿 *PEDIDO – Tira e' Molla ${sInfo.nombre}*\n━━━━━━━━━━━━━━━━\n`;
   msg+=`👤 *Nombre:* ${nombre}\n📞 *Tel:* ${tel}\n`;
   msg+=`📦 *Modalidad:* ${tipo==='domicilio'?'🏠 Domicilio':'🚶 Retiro'}\n`;
   if(tipo==='domicilio'&&dir)msg+=`📍 *Dirección:* ${dir}\n`;
   msg+=`━━━━━━━━━━━━━━━━\n*Productos:*\n`;
-  items.forEach(i=>{msg+=`• ${i.producto.nombre}: ${i.cantidad} ${i.producto.unidad} → $${(i.precio*i.cantidad).toLocaleString('es-AR')}\n`;});
-  msg+=`━━━━━━━━━━━━━━━━\n💰 *TOTAL: $${total.toLocaleString('es-AR')}*\n`;
+  items.forEach(i=>{
+    const tipoLabel=tipoVentaById(i.tipoVenta)?.label||i.tipoVenta;
+    msg+=`• ${i.producto.nombre}: ${i.cantidad} × ${tipoLabel} → $${(i.precioUnitario*i.cantidad).toLocaleString('es-AR')}${i.esAproximado?' (aprox.)':''}\n`;
+  });
+  msg+=`━━━━━━━━━━━━━━━━\n💰 *TOTAL ESTIMADO: $${total.toLocaleString('es-AR')}*\n`;
+  msg+=`⚠️ _El total final se confirma al pesar y armar el pedido en el local._\n`;
   if(notas)msg+=`📝 ${notas}\n`;
   const wsp=sucConfig[sucActual]?.wsp||'';
   if(!wsp){alert('Esta sucursal aún no configuró su WhatsApp.');return;}
@@ -663,7 +768,6 @@ window.enviarPedido=function(){
   carrito={};actualizarBadge();irA('catalogo');mostrarNotif('Pedido enviado ✓');
 }
 
-// ── LOGIN ──
 window.setLoginSuc=function(suc){loginSucSel=suc;document.querySelectorAll('.login-suc-btn').forEach(b=>b.classList.remove('activo'));document.getElementById(`lsb-${suc}`).classList.add('activo');}
 window.loginAdmin=function(){
   const user=document.getElementById('input-user').value.trim();
@@ -674,7 +778,6 @@ window.loginAdmin=function(){
 }
 window.cerrarAdmin=function(){adminLogueado=false;adminSuc=null;irA('catalogo');}
 
-// ── ADMIN ──
 function renderAdmin(){
   const s=adminSuc;const esEdison=s==='edison';
   document.getElementById('admin-suc-label').textContent=`Sucursal: ${SUCURSALES[s].nombre}`;
@@ -698,7 +801,7 @@ function renderOfertasAdmin(){
       const p=maestroProds.find(x=>x.id===o.prodId);
       const msR=o.vence-Date.now();
       const fechaVence=new Date(o.vence).toLocaleDateString('es-AR');
-      return `<div class="oferta-admin-item"><div class="oferta-admin-info"><div class="oferta-admin-nombre">${p?.nombre||o.prodId}</div><div class="oferta-admin-det">$${o.precio.toLocaleString('es-AR')} por ${p?.unidad||''}</div><div class="oferta-admin-timer">⏱ Vence el ${fechaVence} (${formatTimer(msR)})</div></div><button class="btn-del-oferta" onclick="eliminarOferta('${o.id}')">✕</button></div>`;
+      return `<div class="oferta-admin-item"><div class="oferta-admin-info"><div class="oferta-admin-nombre">${p?.nombre||o.prodId}</div><div class="oferta-admin-det">$${o.precio.toLocaleString('es-AR')} por kg</div><div class="oferta-admin-timer">⏱ Vence el ${fechaVence} (${formatTimer(msR)})</div></div><button class="btn-del-oferta" onclick="eliminarOferta('${o.id}')">✕</button></div>`;
     }).join('');
   const sel=document.getElementById('oferta-prod-sel');
   const activos=sucConfig[adminSuc]?.activos||[];
@@ -728,24 +831,8 @@ window.eliminarOferta=async function(oId){
 function renderCatsAdmin(){
   document.getElementById('cats-lista').innerHTML=maestroCats.map(c=>{
     const imgEl=c.imagenURL?`<img src="${c.imagenURL}" alt="${c.nombre}">`:`<span class="emoji-cat-big">${catEmoji(c.nombre)}</span>`;
-    return `<div class="cat-item"><div class="cat-ico-wrap" id="cat-ico-${c.id}">${imgEl}</div><span class="cat-nombre">${c.nombre}</span><button class="cat-gen-btn" onclick="generarIconoCat('${c.id}','${c.nombre}')">✨ IA</button><button class="cat-del-btn" onclick="eliminarCategoria('${c.id}','${c.nombre}')">✕</button></div>`;
+    return `<div class="cat-item"><div class="cat-ico-wrap">${imgEl}</div><span class="cat-nombre">${c.nombre}</span><button class="cat-del-btn" onclick="eliminarCategoria('${c.id}','${c.nombre}')">✕</button></div>`;
   }).join('');
-}
-window.generarIconoCat=async function(id,nombre){
-  const wrap=document.getElementById(`cat-ico-${id}`);
-  wrap.innerHTML=`<div class="gen-overlay-sm"><div class="spinner"></div></div>`;
-  try{
-    const urlTemporal=await generarImagenDALLE(`categoría ${nombre} para verdulería, símbolo representativo`);
-    if(urlTemporal){
-      const urlFinal=await procesarYGuardarImagen(urlTemporal,`iconos/cats/${id}.png`);
-      const cat=maestroCats.find(c=>c.id===id);
-      if(cat){cat.imagenURL=urlFinal;await saveCat(cat);}
-      wrap.innerHTML=`<img src="${urlFinal}" alt="${nombre}">`;
-      mostrarNotif(`Ícono de ${nombre} listo ✨`);
-    } else {
-      wrap.innerHTML=`<span class="emoji-cat-big">${catEmoji(nombre)}</span>`;mostrarNotif('No se pudo generar');
-    }
-  }catch(e){wrap.innerHTML=`<span class="emoji-cat-big">${catEmoji(nombre)}</span>`;mostrarNotif('Error: '+e.message);}
 }
 window.agregarCategoria=async function(){
   const input=document.getElementById('nueva-cat-input');
@@ -760,9 +847,6 @@ window.eliminarCategoria=async function(id,nombre){
   await delCat(id);
 }
 
-// ── PRODUCTOS ADMIN ──
-// Edison: toggle disponibilidad independiente + edición completa
-// Peralta: toggle disponibilidad + precio propio (sin editar nombre/cat/unidad/ícono)
 function renderListaAdmin(){
   const s=adminSuc;const esEdison=s==='edison';
   const busqueda=(document.getElementById('buscador-prod')?.value||'').toLowerCase().trim();
@@ -775,21 +859,44 @@ function renderListaAdmin(){
     const estaActivo=activos.includes(p.id);
     const precio=precios[p.id]||'';
     const imgEl=p.imagenURL?`<img src="${p.imagenURL}" alt="${p.nombre}">`:`<span class="emoji-prev">${catEmoji(catNombre(p.categoria))}</span>`;
+    const unidadesVenta=p.unidadesVenta&&p.unidadesVenta.length?p.unidadesVenta:['kg'];
 
     if(esEdison){
-      // Edison: edición completa + toggle disponibilidad
+      const checksHTML=TIPOS_VENTA.map(t=>{
+        const checked=unidadesVenta.includes(t.id);
+        return `<label class="unidad-check ${checked?'checked':''}" id="ucwrap-${p.id}-${t.id}">
+          <input type="checkbox" id="uc-${p.id}-${t.id}" ${checked?'checked':''} onchange="toggleUnidadCheck('${p.id}','${t.id}',this.checked)">
+          <span>${t.label}</span>
+        </label>`;
+      }).join('');
+      const pesoVisible=p.pesoEstimadoActivo?'visible':'';
       return `<div class="prod-admin-card ${!estaActivo?'inactivo':''}" id="padmin-${p.id}">
         <div class="prod-admin-top">
           <div class="prod-admin-preview" id="prev-${p.id}">${imgEl}</div>
           <div class="prod-campos">
             <input type="text" value="${p.nombre}" placeholder="Nombre" id="pn-${p.id}">
             <div class="prod-precio-wrap">
-              <input type="number" value="${precio}" placeholder="Precio Edison" id="pp-${p.id}">
-              <select id="pu-${p.id}">${['kg','unidad','atado','bandeja','docena','litro','500g','250g','100g'].map(u=>`<option value="${u}" ${p.unidad===u?'selected':''}>${u}</option>`).join('')}</select>
+              <input type="number" value="${precio}" placeholder="Precio por kg" id="pp-${p.id}">
             </div>
             <select id="pc-${p.id}">${maestroCats.map(c=>`<option value="${c.id}" ${p.categoria===c.id?'selected':''}>${c.nombre}</option>`).join('')}</select>
-            <button class="btn-gen-icono" id="btngen-${p.id}" onclick="generarIconoProd('${p.id}')">✨ Generar ícono con IA</button>
-            <label class="btn-subir-icono" style="display:flex;align-items:center;justify-content:center;gap:6px;width:100%;background:var(--negro-input);border:1px solid var(--borde-verde);color:var(--verde);border-radius:6px;padding:8px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.78rem;text-transform:uppercase;cursor:pointer;margin-top:4px;">📁 Subir imagen<input type="file" accept="image/*" style="display:none" onchange="subirImagenManual('${p.id}',this)"></label>
+            <label class="btn-subir-img">
+              📷 Subir imagen
+              <input type="file" accept="image/png,image/jpeg" onchange="subirImagenManual('${p.id}',this)">
+            </label>
+          </div>
+        </div>
+        <div class="unidades-box">
+          <label>Formas de venta disponibles</label>
+          <div class="unidades-checks">${checksHTML}</div>
+          <div class="peso-estimado-box">
+            <div class="peso-estimado-toggle">
+              <label class="toggle-switch"><input type="checkbox" ${p.pesoEstimadoActivo?'checked':''} onchange="togglePesoEstimado('${p.id}',this.checked)"><span class="toggle-slider"></span></label>
+              <span>Calcular precio estimado para unidad/atado/bandeja según peso aproximado</span>
+            </div>
+            <div class="peso-estimado-input-wrap ${pesoVisible}" id="peso-wrap-${p.id}">
+              <label>Peso aproximado por unidad (en gramos)</label>
+              <input type="number" value="${p.pesoEstimadoGramos||''}" placeholder="Ej: 400" id="peso-${p.id}">
+            </div>
           </div>
         </div>
         <div class="disponibilidad-wrap">
@@ -803,15 +910,14 @@ function renderListaAdmin(){
         </div>
       </div>`;
     } else {
-      // Peralta: solo toggle + precio
       return `<div class="prod-admin-card ${!estaActivo?'inactivo':''}" id="padmin-${p.id}">
         <div class="prod-admin-top">
           <div class="prod-admin-preview">${imgEl}</div>
           <div class="prod-campos">
             <div style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:1rem;text-transform:uppercase">${p.nombre}</div>
-            <div style="font-size:0.75rem;color:var(--texto-dim)">${catNombre(p.categoria)} · ${p.unidad}</div>
+            <div style="font-size:0.75rem;color:var(--texto-dim)">${catNombre(p.categoria)} · ${unidadesVenta.map(u=>tipoVentaById(u)?.label||u).join(', ')}</div>
             <div class="peralta-precio-wrap">
-              <label>Precio Peralta Ramos</label>
+              <label>Precio por kg en Peralta Ramos</label>
               <input type="number" value="${precio}" placeholder="$0" id="pp-${p.id}">
             </div>
           </div>
@@ -829,11 +935,20 @@ function renderListaAdmin(){
   }).join('');
 }
 
+window.toggleUnidadCheck=function(prodId,tipoId,checked){
+  const wrap=document.getElementById(`ucwrap-${prodId}-${tipoId}`);
+  if(wrap){if(checked)wrap.classList.add('checked');else wrap.classList.remove('checked');}
+}
+
+window.togglePesoEstimado=function(prodId,checked){
+  const wrap=document.getElementById(`peso-wrap-${prodId}`);
+  if(wrap){if(checked)wrap.classList.add('visible');else wrap.classList.remove('visible');}
+}
+
 window.toggleActivo=async function(id,checked){
   const sc=sucConfig[adminSuc];
   sc.activos=checked?[...new Set([...sc.activos,id])]:sc.activos.filter(a=>a!==id);
   await saveSuc(adminSuc,sc);
-  // actualizar label sin re-render completo
   const label=document.querySelector(`#padmin-${id} .disponibilidad-label`);
   const card=document.getElementById(`padmin-${id}`);
   if(label)label.textContent=checked?`Disponible en ${SUCURSALES[adminSuc].nombre}`:`No disponible en ${SUCURSALES[adminSuc].nombre}`;
@@ -852,41 +967,31 @@ window.subirImagenManual=async function(id,input){
   const prev=document.getElementById(`prev-${id}`);
   prev.innerHTML=`<div class="gen-overlay-sm"><div class="spinner"></div></div>`;
   try{
-    const urlFinal=await subirImagenStorage(file,`iconos/prods/${id}.png`);
+    const ext=file.type==='image/png'?'png':'jpg';
+    const urlFinal=await subirImagenStorage(file,`iconos/prods/${id}.${ext}`);
     const p=maestroProds.find(x=>x.id===id);
     if(p){p.imagenURL=urlFinal;await saveProd(p);}
     prev.innerHTML=`<img src="${urlFinal}" alt="${id}">`;
     mostrarNotif('Imagen subida ✓');
   }catch(e){
     prev.innerHTML=`<span class="emoji-prev">❌</span>`;
-    mostrarNotif('Error: '+e.message);
+    mostrarNotif('Error al subir: '+e.message);
   }
   input.value='';
-}
-
-window.generarIconoProd=async function(id){
-  const nombre=document.getElementById(`pn-${id}`)?.value.trim()||'producto';
-  const btn=document.getElementById(`btngen-${id}`);const prev=document.getElementById(`prev-${id}`);
-  btn.disabled=true;btn.textContent='⏳ Generando...';
-  prev.innerHTML=`<div class="gen-overlay-sm"><div class="spinner"></div></div>`;
-  try{
-    const urlTemporal=await generarImagenDALLE(nombre);
-    if(urlTemporal){
-      const urlFinal=await procesarYGuardarImagen(urlTemporal,`iconos/prods/${id}.png`);
-      const p=maestroProds.find(x=>x.id===id);
-      if(p){p.imagenURL=urlFinal;await saveProd(p);}
-      prev.innerHTML=`<img src="${urlFinal}" alt="${nombre}">`;
-      mostrarNotif('Ícono generado ✨');
-    }else{prev.innerHTML=`<span class="emoji-prev">❓</span>`;mostrarNotif('No se pudo generar');}
-  }catch(e){prev.innerHTML=`<span class="emoji-prev">❌</span>`;mostrarNotif('Error: '+e.message);}
-  btn.disabled=false;btn.innerHTML='✨ Generar ícono con IA';
 }
 
 window.guardarProdEdison=async function(id){
   const p=maestroProds.find(x=>x.id===id);if(!p)return;
   p.nombre=document.getElementById(`pn-${id}`).value.trim()||p.nombre;
-  p.unidad=document.getElementById(`pu-${id}`).value;
   p.categoria=document.getElementById(`pc-${id}`).value;
+
+  const unidadesSel=TIPOS_VENTA.filter(t=>document.getElementById(`uc-${id}-${t.id}`)?.checked).map(t=>t.id);
+  p.unidadesVenta=unidadesSel.length?unidadesSel:['kg'];
+
+  const pesoToggle=document.querySelector(`.prod-admin-card#padmin-${id} .peso-estimado-toggle input[type=checkbox]`);
+  p.pesoEstimadoActivo=pesoToggle?pesoToggle.checked:false;
+  p.pesoEstimadoGramos=p.pesoEstimadoActivo?(parseFloat(document.getElementById(`peso-${id}`)?.value)||null):null;
+
   await saveProd(p);
   const sc=sucConfig['edison'];if(!sc.precios)sc.precios={};
   sc.precios[id]=parseFloat(document.getElementById(`pp-${id}`)?.value)||0;
@@ -907,13 +1012,11 @@ window.eliminarProd=async function(id){
 
 window.agregarProdAdmin=async function(){
   const id='p'+Date.now();
-  const nuevoProd={id,nombre:'Nuevo producto',unidad:'kg',categoria:maestroCats[0]?.id||'c1',imagenURL:null};
+  const nuevoProd={id,nombre:'Nuevo producto',unidadesVenta:['kg'],categoria:maestroCats[0]?.id||'c1',imagenURL:null,pesoEstimadoActivo:false,pesoEstimadoGramos:null};
   await saveProd(nuevoProd);
-  // agregar a activos de Edison por defecto
   const sc=sucConfig['edison'];
   if(!sc.activos.includes(id))sc.activos.push(id);
   await saveSuc('edison',sc);
-  // El onSnapshot va a detectar el cambio y re-renderizar automáticamente
   mostrarNotif('Producto creado');
   setTimeout(()=>document.getElementById(`padmin-${id}`)?.scrollIntoView({behavior:'smooth'}),600);
 }
